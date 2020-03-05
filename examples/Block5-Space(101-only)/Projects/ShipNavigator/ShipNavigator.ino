@@ -13,9 +13,6 @@ Player player = Player(); // for playing sounds
 IMU imu; // the IMU
 
 
-const int ledPin = 13;      // activity LED pin
-boolean blinkState = false; // state of the LED
-
 bool up, down, left, right; //used for checking if the board has been moved in any direction
 int moveTask = 1; //used for picking what direction should be done
 bool newMove = false; // used for checking if a newMove is needed
@@ -24,9 +21,6 @@ long lastTimer; //used for saveing millis()
 
 void setup() {
 
-  // configure Arduino LED for activity indicator
-  pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
 
 
   Serial.begin(9600); // initialize Serial communication
@@ -159,14 +153,6 @@ void loop() {
   }
 
 
-
-
-
-  // blink LED to indicate activity
-  blinkState = !blinkState;
-  digitalWrite(ledPin, blinkState);
-
-  delay(250);
 }
 
 
